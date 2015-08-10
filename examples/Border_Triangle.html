@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>使用CSS border 制作三角</title>
+    <style>
+        .border-zero {
+            width: 0;
+            height: 0;
+            border-width: 30px;
+            border-style: solid;
+            border-color: #c03 #fc0 #69c #6c6;      /* 红 黄 蓝 绿 */
+        }
+        .border-num {
+            width: 100px;
+            height: 100px;
+            border-width: 30px;
+            border-style: solid;
+            border-color: #c03 #fc0 #69c #6c6;       /* 红 黄 蓝 绿 */
+        }
+
+        .triangle-toggle {
+            width: 0;
+            height: 0;
+            border-width: 30px 30px 0;
+            border-style: solid;
+            border-color: #c03 transparent transparent;     /* 红 透明 透明 */
+        }
+        .triangle-down-big {
+            width: 0;
+            height: 0;
+            border-width: 30px;
+            border-style: solid;
+            border-color: #c03 transparent transparent;     /* 红 透明 透明 */
+            box-shadow: 0 0 2px rgba(0, 0, 0 , 1);
+        }
+        .triangle-down-small {
+            width: 0;
+            height: 0;
+            border-width: 30px 30px 0;
+            border-style: solid;
+            border-color: #c03 transparent transparent;     /* 红 透明 透明 */
+            box-shadow: 0 0 2px rgba(0, 0, 0 , 1);
+        }
+
+
+        .test_triangle {
+            width: 200px;
+            text-align: center;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+        a {
+            color: #3FB58E;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .popup {
+            width: 100px;
+            background: #3FB58E;
+            padding: 10px 20px;
+            color: #fff;
+            border-radius: 4px;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+        }
+        .popup span {
+            display: block;
+            width: 0;
+            height: 0;
+            border-width: 0 10px 10px;
+            border-style: solid;
+            border-color:transparent transparent #3FB58E;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            margin-left: -10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>零宽高的div -- border-width:30px</h3>
+    <div class="border-zero"></div>
+    <h3>宽高为100px的div -- border-width:30px</h3>
+    <div class="border-num">border</div>
+    <h3>利用border边彼此叠加的性质来制作三角形, 只要让其他三条边隐藏起来就可以达到效果. 下面, 我们来制作一个向下的三角形: </h3>
+    <div class="triangle-toggle"></div>
+
+    <!--border-color:#c03 transparent transparent ;是将需要隐藏的边的颜色设置成透明；
+    border-width:30px 30px 0; 是将三角形对边的宽度设置为0（这里对边是border-bottom）。
+    这么做的原因是减小三角形有效作用区域。如果只改变颜色透明，而不改宽度会怎么样呢？
+    我们来给这个样式添加个阴影看下（这里建议用FF和CHROME浏览器查看效果）。-->
+    <div class="triangle-down-big"></div>
+    <h3>改变对边宽度为0</h3>
+    <div class="triangle-down-small"></div>
+
+
+    <br/>
+    <br/>
+    <h2>引用效果图样式</h2>
+    <div class="test_zone">
+        <div class="test_triangle">
+            <a href="#">三角形</a>
+            <div class="popup"><span></span>纯CSS写三角形</div>
+        </div>
+    </div>
+</body>
+</html>
